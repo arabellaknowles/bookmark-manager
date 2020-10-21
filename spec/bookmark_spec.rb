@@ -1,7 +1,6 @@
 require 'bookmark.rb'
 require 'database_helpers'
 
-
 describe Bookmark do
 
   describe '.create' do
@@ -16,25 +15,22 @@ describe Bookmark do
     end
   end
 
-
   describe '.all' do
-   it 'returns a list of bookmarks' do
-     connection = PG.connect(dbname: 'bookmark_manager_test')
+    it 'returns a list of bookmarks' do
 
-     # Add the test data
-     bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
-     Bookmark.create(url: "http://www.destroyallsoftware.com", title: "Destroy All Software")
-     Bookmark.create(url: "http://www.google.com", title: "Google")
+      # Add the test data
+      bookmark = Bookmark.create(url: "http://www.makersacademy.com", title: "Makers Academy")
+      Bookmark.create(url: "http://www.destroyallsoftware.com", title: "Destroy All Software")
+      Bookmark.create(url: "http://www.google.com", title: "Google")
 
-     bookmarks = Bookmark.all
+      bookmarks = Bookmark.all
 
-     expect(bookmarks.length).to eq 3
-     expect(bookmarks.first).to be_a Bookmark
-     expect(bookmarks.first.id).to eq bookmark.id
-     expect(bookmarks.first.title).to eq 'Makers Academy'
-     expect(bookmarks.first.url).to eq 'http://www.makersacademy.com'
+      expect(bookmarks.length).to eq 3
+      expect(bookmarks.first).to be_a Bookmark
+      expect(bookmarks.first.id).to eq bookmark.id
+      expect(bookmarks.first.title).to eq 'Makers Academy'
+      expect(bookmarks.first.url).to eq 'http://www.makersacademy.com'
+    end
   end
-end
-
 
 end

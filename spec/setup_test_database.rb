@@ -1,4 +1,4 @@
-#in setup_test_database.rb
+# in setup_test_database.rb
 require 'pg'
 def setup_test_database
   p "Setting up test database..."
