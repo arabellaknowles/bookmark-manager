@@ -1,40 +1,47 @@
-<!-- # bookmark_manager
+As a user
+So I know what bookmarks I have
+I would like to be able to show a list of bookmarks
 
-#Planning
+Domain Model:
+![Screenshot](https://i.imgur.com/Pqgu55f.png)
 
-#user_story
+**How to Connect this to a Database in postgreSQL:**
 
-#as a user
-#so that I can see what websites I have saved
-#I want to be able to see a list of bookmarks
+1) Connect to psql
+```
+psql
+```
+2) Create a database in psql using CREATE DATABASE and name it bookmark_manager
+```
+CREATE DATABASE bookmark_manager;
+```
+3) Connect to bookmark_manager using psql command \c bookmark_manager
+```
+\c bookmark_manager;
+```
+4) Run the query we saved in the file create_bookmarks_table.sql
+5) Add a new column called title by running the query saved in the add_title_to_bookmarks.sql
 
 
-input   >              method    >          output
-See websites       bookmarks        list of bookmarks
+**Setting up a test database for feature and unit testing:**
+1) Connect to psql
+```
+psql
+```
+2) Create database bookmark_manager_test;
+```
+CREATE DATABASE bookmark_manager_test;
+```
+3) Connect to bookmark_manager_test using psql command \c bookmark_manager
+```
+\c bookmark_manager_test;
+```
+4) Run the query we saved in the file 01_create_bookmarks_table.sql
+5) Add a new column called title by running the query saved in the 02_add_title_to_bookmarks.sql
 
+**User stories:**
 
-Class
-list_of_bookmarks
-
-Method
-show_list_of_bookmarks
-@collection
-
-Class
-bookmark
-
-@name
-@link
-
-[domain model diagram](./bookmark_manager_1.png) -->
-
-How to connect and make a DB
-
-1 - Connect to psql
-2 - Create the database using the psql command CREATE DATABASE bookmark_manager;
-3 - Connect to the database using the pqsl command \c bookmark_manager;
-4 - Run the query we have saved in the file 01_create_bookmarks_table.sql
-
-instruction to create test database:
-user=# CREATE DATABASE "bookmark_manager_test";
-user=# CREATE TABLE bookmarks(id SERIAL PRIMARY KEY, url VARCHAR(60));
+add new bookmarks:
+As a user,
+So that I can access my favourite web page easily,
+I would like to save it as a bookmark
